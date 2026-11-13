@@ -11,26 +11,29 @@ MONETAG_SCRIPT = '<script src="https://quge5.com/88/tag.min.js" data-zone="30967
 GOOGLE_META = '<meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />'
 ADSENSE_SCRIPT = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>'
 
+# Anúncio blindado com espaçamento profissional para não quebrar o layout
 AD_BANNER = """
-<div style="text-align:center; margin: 20px 0; background:var(--card-bg); padding:15px; border-radius:16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px dashed var(--border-color);">
-    <p style="color:var(--text-light); font-size:10px; margin-bottom:6px; text-transform: uppercase; letter-spacing: 1.5px; font-weight:700;">Publicidade</p>
-    <script type="text/javascript">
-        atOptions = {
-            'key' : '7d8438dbf1b7a796906a9575be2722b3',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="https://bauval.org/22/7d8438dbf1b7a796906a9575be2722b3"></script>
+<div style="text-align:center; margin: 25px auto; background:var(--card-bg); padding:18px; border-radius:20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid var(--border-color); max-width: 100%; overflow: hidden;">
+    <p style="color:var(--text-light); font-size:10px; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px; font-weight:800;">Publicidade</p>
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '7d8438dbf1b7a796906a9575be2722b3',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="https://bauval.org/22/7d8438dbf1b7a796906a9575be2722b3"></script>
+    </div>
 </div>
 """
 
 LICENCA_RODAPE = """
-<div style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin-top: 35px; padding: 25px; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-    <p style="margin: 0 0 6px 0;"><strong>Feito para facilitar o seu dia a dia!</strong> Tudo roda direto no seu celular com total segurança e privacidade.</p>
-    <p style="margin: 0;">© 2026 Central de Utilidades. Todos os direitos reservados.</p>
+<div style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin-top: 40px; padding: 30px 20px; background: var(--card-bg); border-radius: 20px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
+    <p style="margin: 0 0 8px 0;"><strong>Feito para facilitar o seu dia a dia!</strong> Tudo roda direto no seu celular com total segurança e privacidade.</p>
+    <p style="margin: 0;">© 2026 Central Prática. Todos os direitos reservados.</p>
 </div>
 """
 
@@ -43,34 +46,40 @@ INDEX_TEMPLATE = """
     {{ adsense_script | safe }}
     {{ monetag_script | safe }}
     {{ google_meta | safe }}
-    <title>Central de Utilidades - Ferramentas Rápidas para Celular</title>
+    <title>Central Prática - Ferramentas Rápidas para Celular</title>
     <meta name="description" content="Ferramentas online super rápidas e gratuitas para celular: crie fontes para Instagram, links de WhatsApp, compacte fotos e conte caracteres sem baixar nada.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
-            --primary: #2563eb; --primary-dark: #1d4ed8; --bg-color: #f8fafc; 
+            --primary: #2563eb; --primary-dark: #1d4ed8; --bg-color: #f1f5f9; 
             --card-bg: #ffffff; --text: #0f172a; --text-light: #64748b; 
             --header-bg: linear-gradient(135deg, #2563eb, #1d4ed8); --border-color: #e2e8f0;
         }
         [data-theme="dark"] { 
-            --primary: #3b82f6; --primary-dark: #60a5fa; --bg-color: #0b0f19; 
+            --primary: #3b82f6; --primary-dark: #60a5fa; --bg-color: #030712; 
             --card-bg: #111827; --text: #f9fafb; --text-light: #9ca3af; 
             --header-bg: linear-gradient(135deg, #1e3a8a, #172554); --border-color: #1f2937;
         }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg-color); margin: 0; padding: 0; transition: background 0.3s, color 0.3s; }
-        .navbar { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-        .logo { font-weight: 800; color: var(--primary); font-size: 17px; text-decoration: none; display: flex; align-items: center; gap: 6px; }
-        .theme-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .navbar { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .logo { font-weight: 800; color: var(--primary); font-size: 18px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .theme-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.2s; }
+        .theme-btn:hover { border-color: var(--primary); }
         .container { max-width: 650px; margin: 25px auto; padding: 0 15px; }
-        header { background: var(--header-bg); color: white; padding: 35px 20px; border-radius: 20px; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 30px -10px rgba(37,99,235,0.3); }
-        header h1 { margin: 0 0 10px 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
-        header p { margin: 0; opacity: 0.95; font-size: 14px; line-height: 1.5; }
-        .tools-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .tool-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 22px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); text-decoration: none; color: var(--text); display: block; transition: all 0.25s ease; }
-        .tool-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 8px 20px rgba(37,99,235,0.08); }
-        .tool-card h3 { margin: 0 0 6px 0; color: var(--primary); font-size: 17px; display: flex; align-items: center; gap: 8px; font-weight: 700; }
-        .tool-card p { margin: 0; font-size: 13px; color: var(--text-light); line-height: 1.5; }
-        footer { text-align: center; margin-top: 30px; }
+        header { background: var(--header-bg); color: white; padding: 40px 25px; border-radius: 24px; margin-bottom: 25px; text-align: center; box-shadow: 0 12px 35px -10px rgba(37,99,235,0.35); }
+        header h1 { margin: 0 0 12px 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+        header p { margin: 0; opacity: 0.95; font-size: 15px; line-height: 1.5; }
+        
+        .search-box { margin-bottom: 25px; }
+        .search-input { width: 100%; padding: 15px 20px; border: 1.5px solid var(--border-color); border-radius: 16px; background: var(--card-bg); color: var(--text); font-size: 15px; box-sizing: border-box; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.2s; }
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 4px 20px rgba(37,99,235,0.1); }
+
+        .tools-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .tool-card { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 24px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); text-decoration: none; color: var(--text); display: block; transition: all 0.25s ease; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(37,99,235,0.1); }
+        .tool-card h3 { margin: 0 0 8px 0; color: var(--primary); font-size: 18px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+        .tool-card p { margin: 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
+        footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
 <body data-theme="light">
@@ -80,25 +89,30 @@ INDEX_TEMPLATE = """
     </div>
     <div class="container">
         {{ ad_banner | safe }}
+        
         <header>
             <h1>O que você quer resolver agora?</h1>
             <p>Escolha uma ferramenta abaixo. É tudo 100% gratuito, direto no seu celular e sem precisar baixar nada.</p>
         </header>
 
-        <div class="tools-grid">
-            <a href="fontes.html" class="tool-card">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar ferramenta rapidamente..." oninput="filtrarFerramentas()">
+        </div>
+
+        <div class="tools-grid" id="toolsGrid">
+            <a href="fontes.html" class="tool-card" data-name="letras fontes instagram tiktok">
                 <h3>✨ Letras Diferentes para Instagram</h3>
                 <p>Deixe sua bio, legendas e stories com letras estilosas e chamativas copiando com um toque.</p>
             </a>
-            <a href="whatsapp.html" class="tool-card">
+            <a href="whatsapp.html" class="tool-card" data-name="whatsapp link mensagem conversa direto">
                 <h3>💬 Criador de Link para WhatsApp</h3>
                 <p>Gere um link direto com mensagem pronta para clientes te chamarem sem precisar salvar o número.</p>
             </a>
-            <a href="contador.html" class="tool-card">
+            <a href="contador.html" class="tool-card" data-name="contador letras palavras texto tamanho">
                 <h3>📊 Contador de Letras e Palavras</h3>
                 <p>Veja na hora quantas letras, palavras e frases seu texto tem para postar sem errar o limite.</p>
             </a>
-            <a href="compressor.html" class="tool-card">
+            <a href="compressor.html" class="tool-card" data-name="compressor diminuir fotos imagens compactar leve">
                 <h3>🖼️ Diminuir Tamanho de Fotos</h3>
                 <p>Deixe suas imagens mais leves direto no navegador para enviar mais rápido ou postar.</p>
             </a>
@@ -117,6 +131,19 @@ INDEX_TEMPLATE = """
             localStorage.setItem('theme', nextTheme);
         }
         if (localStorage.getItem('theme') === 'dark') { document.body.setAttribute('data-theme', 'dark'); }
+
+        function filtrarFerramentas() {
+            let termo = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.tool-card');
+            cards.forEach(card => {
+                let nome = card.getAttribute('data-name');
+                if (nome.includes(termo)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
@@ -136,32 +163,32 @@ TOOL_LAYOUT = """
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
-            --primary: #2563eb; --primary-dark: #1d4ed8; --bg-color: #f8fafc; 
+            --primary: #2563eb; --primary-dark: #1d4ed8; --bg-color: #f1f5f9; 
             --card-bg: #ffffff; --text: #0f172a; --text-light: #64748b; 
             --header-bg: linear-gradient(135deg, #2563eb, #1d4ed8); --border-color: #e2e8f0;
         }
         [data-theme="dark"] { 
-            --primary: #3b82f6; --primary-dark: #60a5fa; --bg-color: #0b0f19; 
+            --primary: #3b82f6; --primary-dark: #60a5fa; --bg-color: #030712; 
             --card-bg: #111827; --text: #f9fafb; --text-light: #9ca3af; 
             --header-bg: linear-gradient(135deg, #1e3a8a, #172554); --border-color: #1f2937;
         }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg-color); margin: 0; padding: 0; transition: background 0.3s, color 0.3s; }
-        .navbar { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-        .back-link { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 5px; }
-        .theme-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .navbar { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .back-link { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+        .theme-btn { background: var(--bg-color); color: var(--text); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; }
         .container { max-width: 650px; margin: 25px auto; padding: 0 15px; }
-        .tool-box { background: var(--card-bg); border: 1px solid var(--border-color); padding: 25px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 25px; }
-        .tool-box h1 { margin: 0 0 8px 0; color: var(--primary); font-size: 21px; font-weight: 800; }
+        .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
+        .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px; border: 1.5px solid var(--border-color); border-radius: 12px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
         textarea:focus, input:focus { border-color: var(--primary); }
-        button.action-btn { background: var(--primary); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 12px rgba(37,99,235,0.2); }
+        button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
-        .output-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color); gap: 10px; }
+        .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
         .output-item:last-child { border-bottom: none; }
-        .copy-btn { background: var(--bg-color); border: 1.5px solid var(--border-color); color: var(--primary); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 12px; white-space: nowrap; transition: all 0.2s; }
+        .copy-btn { background: var(--bg-color); border: 1.5px solid var(--border-color); color: var(--primary); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 13px; white-space: nowrap; transition: all 0.2s; }
         .copy-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
-        footer { text-align: center; margin-top: 30px; }
+        footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
 <body data-theme="light">
@@ -208,7 +235,7 @@ FERRAMENTAS = {
         "title": "Gerador de Letras Diferentes",
         "desc": "Digite o que quiser abaixo e escolha a letra estilizada perfeita para colar no Instagram, TikTok ou WhatsApp.",
         "html_content": """
-            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 90px;">Exemplo legal</textarea>
+            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Exemplo legal</textarea>
             <div id="fontsOutput" style="margin-top: 15px;"></div>
             <script>
                 const mapas = {
@@ -222,7 +249,7 @@ FERRAMENTAS = {
                     let html = '';
                     for (let [estilo, mapa] of Object.entries(mapas)) {
                         let convertido = txt.split('').map(c => mapa[c.toLowerCase()] || c).join('');
-                        html += `<div class="output-item"><div style="overflow:hidden;"><small style="color:var(--text-light); font-weight:600; font-size:11px;">${estilo}</small><div style="font-size:16px; font-weight:700; margin-top:2px; word-break:break-all;">${convertido}</div></div><button class="copy-btn" onclick="copiarTexto('${convertido}', this)">Copiar</button></div>`;
+                        html += `<div class="output-item"><div style="overflow:hidden;"><small style="color:var(--text-light); font-weight:700; font-size:11px; text-transform:uppercase;">${estilo}</small><div style="font-size:16px; font-weight:700; margin-top:3px; word-break:break-all;">${convertido}</div></div><button class="copy-btn" onclick="copiarTexto('${convertido}', this)">Copiar</button></div>`;
                     }
                     document.getElementById('fontsOutput').innerHTML = html;
                 }
@@ -233,12 +260,11 @@ FERRAMENTAS = {
     "whatsapp.html": {
         "title": "Criador de Link Direto para WhatsApp",
         "desc": "Monte um link com número e mensagem automática para colocar na sua bio ou mandar para clientes.",
-        "html_contentCH": "",
         "html_content": """
             <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (com DDD, ex: 5511999999999):</label>
             <input type="text" id="numeroWp" placeholder="5511999999999" value="5511999999999">
             <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Mensagem pronta que a pessoa vai te enviar:</label>
-            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:80px;">Olá! Vi seu perfil e gostaria de mais informações.</textarea>
+            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:90px;">Olá! Vi seu perfil e gostaria de mais informações.</textarea>
             <button class="action-btn" onclick="gerarLinkWp()">Gerar Link Mágico do WhatsApp</button>
             <div id="resultadoWp" style="margin-top:15px;"></div>
             <script>
@@ -246,7 +272,7 @@ FERRAMENTAS = {
                     let num = document.getElementById('numeroWp').value.replace(/\\D/g,'');
                     let msg = encodeURIComponent(document.getElementById('msgWp').value);
                     let link = `https://wa.me/${num}?text=${msg}`;
-                    document.getElementById('resultadoWp').innerHTML = `<div class="output-item" style="background:var(--bg-color); padding:12px; border-radius:10px; border:1px solid var(--border-color);"><div style="word-break:break-all; font-size:13px; font-weight:600;">${link}</div><button class="copy-btn" onclick="copiarTexto('${link}', this)">Copiar Link</button></div>`;
+                    document.getElementById('resultadoWp').innerHTML = `<div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color);"><div style="word-break:break-all; font-size:13px; font-weight:600;">${link}</div><button class="copy-btn" onclick="copiarTexto('${link}', this)">Copiar Link</button></div>`;
                 }
             </script>
         """
@@ -255,15 +281,15 @@ FERRAMENTAS = {
         "title": "Contador de Letras e Palavras",
         "desc": "Cole seu texto abaixo para descobrir instantaneamente quantas letras, palavras e frases ele tem.",
         "html_content": """
-            <textarea id="textoContador" placeholder="Cole seu texto aqui..." oninput="contar()" style="height:130px;"></textarea>
+            <textarea id="textoContador" placeholder="Cole seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:15px;">
-                <div style="background:var(--bg-color); padding:15px; border-radius:12px; border:1px solid var(--border-color); text-align:center;">
-                    <small style="color:var(--text-light); font-weight:600; font-size:12px;">Total de Letras</small>
-                    <div id="numChars" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
+                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Letras</small>
+                    <div id="numChars" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
-                <div style="background:var(--bg-color); padding:15px; border-radius:12px; border:1px solid var(--border-color); text-align:center;">
-                    <small style="color:var(--text-light); font-weight:600; font-size:12px;">Total de Palavras</small>
-                    <div id="numPalavras" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
+                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Palavras</small>
+                    <div id="numPalavras" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
             </div>
             <script>
@@ -280,8 +306,8 @@ FERRAMENTAS = {
         "title": "Diminuir e Compactar Fotos",
         "desc": "Escolha uma imagem na galeria do seu celular para reduzir o peso dela na hora, mantendo uma ótima qualidade.",
         "html_content": """
-            <input type="file" id="uploadImg" accept="image/*" style="margin-bottom:15px; font-size:14px; padding:10px; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:10px; width:100%; box-sizing:border-box;" onchange="comprimirImagem(event)">
-            <div id="statusCompress" style="font-size:13px; font-weight:600; color:var(--text-light); margin-bottom:10px; text-align:center;"></div>
+            <input type="file" id="uploadImg" accept="image/*" style="margin-bottom:15px; font-size:14px; padding:12px; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; width:100%; box-sizing:border-box;" onchange="comprimirImagem(event)">
+            <div id="statusCompress" style="font-size:13px; font-weight:700; color:var(--text-light); margin-bottom:12px; text-align:center;"></div>
             <div id="resultadoCompress" style="text-align:center;"></div>
             <script>
                 function comprimirImagem(e) {
@@ -303,7 +329,7 @@ FERRAMENTAS = {
                             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                             let dataUrl = canvas.toDataURL('image/jpeg', 0.75);
                             document.getElementById('statusCompress').innerText = "Pronto! Sua foto ficou bem mais leve.";
-                            document.getElementById('resultadoCompress').innerHTML = `<a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center;">Baixar Foto Leve Agora</a>`;
+                            document.getElementById('resultadoCompress').innerHTML = `<a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Leve Agora</a>`;
                         }
                     }
                     reader.readAsDataURL(file);
@@ -339,7 +365,7 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Central de Utilidades Mobile-First humanizada...")
+    print("Gerando Central de Utilidades Mobile-First com design refinado...")
     from jinja2 import Template
     
     with open("index.html", "w", encoding="utf-8") as f:
@@ -352,7 +378,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Páginas reestruturadas com linguagem simples e design atraente.")
+    print("Sucesso absoluto! Design otimizado, anúncios isolados e barra de busca adicionada.")
 
 if __name__ == "__main__":
     gerar_site()
