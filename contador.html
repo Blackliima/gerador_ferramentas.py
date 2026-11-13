@@ -37,6 +37,10 @@
         .output-item:last-child { border-bottom: none; }
         .copy-btn { background: var(--bg-color); border: 1.5px solid var(--border-color); color: var(--primary); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 13px; white-space: nowrap; transition: all 0.2s; }
         .copy-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .seo-content { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .seo-content h2 { font-size: 17px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
+        .seo-content p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
         footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
@@ -105,11 +109,19 @@
                         bioEl.style.color = '#dc2626';
                     }
                     
-                    let segundos = Math.ceil(palavras / 3); // Média de leitura de 180 palavras por minuto
+                    let segundos = Math.ceil(palavras / 3);
                     document.getElementById('leituraTime').innerText = segundos < 60 ? `${segundos} seg` : `${Math.ceil(segundos/60)} min`;
                 }
             </script>
         
+        </div>
+
+        <div class="seo-content">
+            <h2>Como funciona esta ferramenta?</h2>
+            <p>Ideal para criadores de conteúdo, redatores e estudantes que precisam gerenciar o tamanho de postagens, redações ou biografias em redes sociais que possuem limites rígidos de caracteres.</p>
+            <h2 style="margin-top: 15px;">Dúvidas Frequentes</h2>
+            <p><strong>É gratuito?</strong> Sim, todas as nossas utilidades rodam diretamente no navegador do seu celular ou computador sem custo.</p>
+            <p><strong>Precisa instalar aplicativo?</strong> Não, tudo funciona online de forma rápida e leve.</p>
         </div>
 
         

@@ -45,8 +45,8 @@ INDEX_TEMPLATE = """
     {{ adsense_script | safe }}
     {{ monetag_script | safe }}
     {{ google_meta | safe }}
-    <title>Central Prática - Ferramentas Rápidas para Celular</title>
-    <meta name="description" content="Ferramentas online super rápidas e gratuitas para celular: crie fontes para Instagram, links de WhatsApp, compacte fotos e conte caracteres sem baixar nada.">
+    <title>Central Prática - Ferramentas Rápidas e Gratuitas para Celular</title>
+    <meta name="description" content="Central de utilidades mobile super rápidas: gerador de fontes para Instagram, encurtador de WhatsApp, contador de caracteres, compactador de fotos e mais.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -78,6 +78,10 @@ INDEX_TEMPLATE = """
         .tool-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(37,99,235,0.1); }
         .tool-card h3 { margin: 0 0 8px 0; color: var(--primary); font-size: 18px; display: flex; align-items: center; gap: 10px; font-weight: 700; }
         .tool-card p { margin: 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
+        
+        .seo-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px; border-radius: 24px; margin-top: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .seo-box h2 { font-size: 18px; color: var(--primary); margin-top: 0; margin-bottom: 12px; }
+        .seo-box p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; }
         footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
@@ -91,7 +95,7 @@ INDEX_TEMPLATE = """
         
         <header>
             <h1>O que você quer resolver agora?</h1>
-            <p>Escolha uma ferramenta abaixo. É tudo 100% gratuito, direto no seu celular e sem precisar baixar nada.</p>
+            <p>Escolha uma ferramenta abaixo. É tudo 100% gratuito, direto no seu celular e sem precisar baixar aplicativos pesados.</p>
         </header>
 
         <div class="search-box">
@@ -99,22 +103,35 @@ INDEX_TEMPLATE = """
         </div>
 
         <div class="tools-grid" id="toolsGrid">
-            <a href="fontes.html" class="tool-card" data-name="letras fontes instagram tiktok bio">
-                <h3>✨ Gerador Avançado de Letras & Fontes</h3>
-                <p>Dezenas de estilos estilizados para bio, legendas e stories com cópia rápida em um toque.</p>
+            <a href="fontes.html" class="tool-card" data-name="letras fontes instagram tiktok bio estilizadas">
+                <h3>✨ Gerador de Letras & Fontes para Instagram</h3>
+                <p>Dezenas de fontes estilizadas para bio, legendas e stories com cópia rápida em um toque.</p>
             </a>
             <a href="whatsapp.html" class="tool-card" data-name="whatsapp link mensagem conversa direto qr code">
-                <h3>💬 Criador Profissional de Link WhatsApp</h3>
-                <p>Gere links com mensagens prontas e QR Code instantâneo para atendimento ou negócios.</p>
+                <h3>💬 Criador de Link WhatsApp & QR Code</h3>
+                <p>Gere links com mensagens prontas e QR Code instantâneo para atendimento comercial.</p>
             </a>
             <a href="contador.html" class="tool-card" data-name="contador letras palavras texto tamanho limites">
-                <h3>📊 Contador de Textos & Limites</h3>
-                <p>Meca caracteres, palavras, parágrafos e veja o limite ideal para redes sociais em tempo real.</p>
+                <h3>📊 Contador de Letras, Palavras & Redes</h3>
+                <p>Meca caracteres, palavras e verifique o limite ideal para a bio do Instagram e posts.</p>
             </a>
             <a href="compressor.html" class="tool-card" data-name="compressor diminuir fotos imagens compactar leve">
                 <h3>🖼️ Compressor de Fotos Inteligente</h3>
                 <p>Reduza o peso de imagens direto no navegador com controle de qualidade e download ágil.</p>
             </a>
+            <a href="conversor-texto.html" class="tool-card" data-name="conversor texto maiusculas minusculas caixa">
+                <h3>🔤 Conversor de Letras Maiúsculas e Minúsculas</h3>
+                <p>Transforme rapidamente seu texto inteiro em maiúsculas, minúsculas, capitalizado ou inverso.</p>
+            </a>
+            <a href="gerador-senhas.html" class="tool-card" data-name="gerador senhas forte seguras gerador">
+                <h3>🔐 Gerador de Senhas Seguras</h3>
+                <p>Crie senhas fortes e impenetráveis com letras, números e símbolos em segundos.</p>
+            </a>
+        </div>
+
+        <div class="seo-box">
+            <h2>Por que usar a Central Prática?</h2>
+            <p>Nossa plataforma foi desenvolvida pensando na velocidade e na praticidade de quem usa o celular todos os dias. Seja para criar conteúdos criativos nas redes sociais, otimizar imagens ou automatizar conversas de vendas, nossas ferramentas rodam inteiramente no seu navegador, garantindo total privacidade, agilidade e zero consumo de memória do seu aparelho.</p>
         </div>
 
         {{ ad_banner | safe }}
@@ -187,6 +204,10 @@ TOOL_LAYOUT = """
         .output-item:last-child { border-bottom: none; }
         .copy-btn { background: var(--bg-color); border: 1.5px solid var(--border-color); color: var(--primary); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 13px; white-space: nowrap; transition: all 0.2s; }
         .copy-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        .seo-content { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .seo-content h2 { font-size: 17px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
+        .seo-content p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
         footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
@@ -202,6 +223,14 @@ TOOL_LAYOUT = """
             <h1>{{ tool.title }}</h1>
             <p>{{ tool.desc }}</p>
             {{ tool.html_content | safe }}
+        </div>
+
+        <div class="seo-content">
+            <h2>Como funciona esta ferramenta?</h2>
+            <p>{{ tool.seo_text }}</p>
+            <h2 style="margin-top: 15px;">Dúvidas Frequentes</h2>
+            <p><strong>É gratuito?</strong> Sim, todas as nossas utilidades rodam diretamente no navegador do seu celular ou computador sem custo.</p>
+            <p><strong>Precisa instalar aplicativo?</strong> Não, tudo funciona online de forma rápida e leve.</p>
         </div>
 
         {{ ad_banner | safe }}
@@ -233,6 +262,7 @@ FERRAMENTAS = {
     "fontes.html": {
         "title": "Gerador Avançado de Letras & Fontes",
         "desc": "Digite o seu texto abaixo e escolha entre dezenas de estilos de letras estilizadas para colar no Instagram, TikTok ou WhatsApp.",
+        "seo_text": "Este gerador utiliza caracteres unicode especiais para transformar frases comuns em fontes estéticas e atraentes. Perfeito para destacar sua biografia do Instagram, legendas do TikTok ou mensagens em negrito no WhatsApp.",
         "html_content": """
             <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Central Prática</textarea>
             <div id="fontsOutput" style="margin-top: 15px;"></div>
@@ -261,6 +291,7 @@ FERRAMENTAS = {
     "whatsapp.html": {
         "title": "Criador Profissional de Link WhatsApp",
         "desc": "Monte um link direto para o seu WhatsApp com mensagem automática e gere o QR Code para imprimir ou divulgar.",
+        "seo_text": "O link direto do WhatsApp facilita o primeiro contato de potenciais clientes com o seu negócio. Basta inserir o número com o DDD e a mensagem padrão para gerar um link clicável e um QR Code pronto para uso em redes sociais e panfletos.",
         "html_content": """
             <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (DDI + DDD + Número, ex: 5511999999999):</label>
             <input type="text" id="numeroWp" placeholder="5511999999999" value="5511999999999">
@@ -301,6 +332,7 @@ FERRAMENTAS = {
     "contador.html": {
         "title": "Contador de Textos & Limites",
         "desc": "Cole seu texto abaixo para ver estatísticas detalhadas de caracteres, palavras e adequação aos limites das redes sociais.",
+        "seo_text": "Ideal para criadores de conteúdo, redatores e estudantes que precisam gerenciar o tamanho de postagens, redações ou biografias em redes sociais que possuem limites rígidos de caracteres.",
         "html_content": """
             <textarea id="textoContador" placeholder="Cole ou digite seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
             
@@ -339,7 +371,7 @@ FERRAMENTAS = {
                         bioEl.style.color = '#dc2626';
                     }
                     
-                    let segundos = Math.ceil(palavras / 3); // Média de leitura de 180 palavras por minuto
+                    let segundos = Math.ceil(palavras / 3);
                     document.getElementById('leituraTime').innerText = segundos < 60 ? `${segundos} seg` : `${Math.ceil(segundos/60)} min`;
                 }
             </script>
@@ -348,6 +380,7 @@ FERRAMENTAS = {
     "compressor.html": {
         "title": "Compressor de Fotos Inteligente",
         "desc": "Selecione uma foto da galeria do seu celular para reduzir o tamanho e o peso do arquivo de forma rápida e segura.",
+        "seo_text": "Compacte imagens diretamente no seu dispositivo sem precisar enviar fotos pessoais para servidores externos. Otimize o espaço e envie arquivos mais leves para sites e redes sociais.",
         "html_content": """
             <input type="file" id="uploadImg" accept="image/*" style="margin-bottom:15px; font-size:14px; padding:12px; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; width:100%; box-sizing:border-box;" onchange="comprimirImagem(event)">
             
@@ -387,6 +420,67 @@ FERRAMENTAS = {
                 }
             </script>
         """
+    },
+    "conversor-texto.html": {
+        "title": "Conversor de Letras Maiúsculas e Minúsculas",
+        "desc": "Alterne instantaneamente o formato do seu texto entre letras maiúsculas, minúsculas, formato de título ou invertido.",
+        "seo_text": "Ferramenta essencial para formatar artigos, títulos ou mensagens rapidamente. Corrija o formato de blocos de texto inteiros com apenas um clique.",
+        "html_content": """
+            <textarea id="textoConv" placeholder="Digite ou cole seu texto aqui..." style="height:120px;" oninput="converterTudo()"></textarea>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:15px;">
+                <button class="copy-btn" style="padding:10px;" onclick="mudarModo('maiusc')">MAIÚSCULAS</button>
+                <button class="copy-btn" style="padding:10px;" onclick="mudarModo('minusc')">minúsculas</button>
+                <button class="copy-btn" style="padding:10px;" onclick="mudarModo('titulo')">Primeira Letra Maiúscula</button>
+                <button class="copy-btn" style="padding:10px;" onclick="mudarModo('inverso')">Inverter Texto</button>
+            </div>
+
+            <div id="resConvOut"></div>
+
+            <script>
+                function mudarModo(tipo) {
+                    let txt = document.getElementById('textoConv').value;
+                    let res = '';
+                    if(tipo === 'maiusc') res = txt.toUpperCase();
+                    if(tipo === 'minusc') res = txt.toLowerCase();
+                    if(tipo === 'titulo') res = txt.toLowerCase().replace(/(^|\\s)\\S/g, l => l.toUpperCase());
+                    if(tipo === 'inverso') res = txt.split('').reverse().join('');
+                    
+                    document.getElementById('resConvOut').innerHTML = `
+                        <div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color); display:block;">
+                            <div style="word-break:break-all; font-size:14px; font-weight:600; margin-bottom:10px;">${res}</div>
+                            <button class="copy-btn" style="width:100%;" onclick="copiarTexto('${res.replace(/'/g, "\\\\'")}', this)">Copiar Texto Convertido</button>
+                        </div>
+                    `;
+                }
+                function converterTudo() { mudarModo('maiusc'); }
+            </script>
+        """
+    },
+    "gerador-senhas.html": {
+        "title": "Gerador de Senhas Seguras",
+        "desc": "Proteja suas contas criando senhas fortes, complexas e aleatórias com letras, números e símbolos.",
+        "seo_text": "A segurança digital começa com senhas robustas. Utilize nosso gerador para criar combinações aleatórias difíceis de adivinhar por softwares maliciosos.",
+        "html_content": """
+            <div style="background:var(--bg-color); padding:20px; border-radius:16px; border:1.5px solid var(--border-color); text-align:center; margin-bottom:15px;">
+                <div id="senhaGerada" style="font-size:20px; font-weight:800; color:var(--primary); word-break:break-all; margin-bottom:15px;">Clique no botão abaixo</div>
+                <button class="action-btn" onclick="gerarSenha()">Gerar Nova Senha Forte</button>
+            </div>
+            <script>
+                function gerarSenha() {
+                    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!+=?";
+                    let senha = "";
+                    for (let i = 0; i < 16; i++) {
+                        senha += chars.charAt(Math.floor(Math.random() * chars.length));
+                    }
+                    document.getElementById('senhaGerada').innerHTML = `
+                        <div>${senha}</div>
+                        <button class="copy-btn" style="margin-top:12px;" onclick="copiarTexto('${senha}', this)">Copiar Senha</button>
+                    `;
+                }
+                gerarSenha();
+            </script>
+        """
     }
 }
 
@@ -416,7 +510,7 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Central de Utilidades Mobile-First robusta...")
+    print("Gerando Central Prática completa com SEO avançado...")
     from jinja2 import Template
     
     with open("index.html", "w", encoding="utf-8") as f:
@@ -429,7 +523,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Ferramentas turbinadas com recursos avançados.")
+    print("Sucesso absoluto! Todas as novas ferramentas e textos de SEO foram gerados.")
 
 if __name__ == "__main__":
     gerar_site()
