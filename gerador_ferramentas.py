@@ -29,10 +29,15 @@ AD_BANNER = """
 </div>
 """
 
-LICENCA_RODAPE = """
+RODAPE_AUTENTICO = """
 <div style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin-top: 40px; padding: 30px 20px; background: var(--card-bg); border-radius: 20px; border: 1px solid var(--border-color); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-    <p style="margin: 0 0 8px 0;"><strong>Feito para facilitar o seu dia a dia!</strong> Tudo roda direto no seu celular com total segurança e privacidade.</p>
-    <p style="margin: 0;">© 2026 Central Prática. Todos os direitos reservados.</p>
+    <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">Início</a>
+        <a href="faq.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">FAQ</a>
+        <a href="termos.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">Termos de Uso</a>
+    </div>
+    <p style="margin: 0 0 6px 0;"><strong>Central Prática</strong> - Ferramentas rápidas e gratuitas para o seu dia a dia.</p>
+    <p style="margin: 0;">© 2026 Todos os direitos reservados.</p>
 </div>
 """
 
@@ -136,7 +141,7 @@ INDEX_TEMPLATE = """
 
         {{ ad_banner | safe }}
         <footer>
-            {{ licenca_rodape | safe }}
+            {{ rodape_autentico | safe }}
         </footer>
     </div>
     <script>
@@ -235,7 +240,7 @@ TOOL_LAYOUT = """
 
         {{ ad_banner | safe }}
         <footer>
-            {{ licenca_rodape | safe }}
+            {{ rodape_autentico | safe }}
         </footer>
     </div>
     <script>
@@ -257,6 +262,35 @@ TOOL_LAYOUT = """
 </body>
 </html>
 """
+
+STATIC_PAGES = {
+    "faq.html": {
+        "title": "Perguntas Frequentes (FAQ) - Central Prática",
+        "desc": "Tire suas dúvidas sobre o uso das nossas ferramentas gratuitas para celular.",
+        "content": """
+            <h1>Perguntas Frequentes (FAQ)</h1>
+            <p>Tire suas dúvidas rápidas sobre a nossa plataforma de utilidades.</p>
+            <div style="margin-top: 20px;">
+                <p><strong>1. As ferramentas são 100% gratuitas?</strong><br>Sim, todas as utilidades do site são totalmente gratuitas para uso ilimitado.</p>
+                <p><strong>2. Preciso instalar algum aplicativo no celular?</strong><br>Não! Nenhuma ferramenta exige download. Tudo funciona direto no seu navegador com total leveza.</p>
+                <p><strong>3. Meus dados ou fotos ficam salvos?</strong><br>Não. Processamentos como compressão de fotos e conversão de textos ocorrem inteiramente no seu próprio aparelho, garantindo privacidade absoluta.</p>
+            </div>
+        """
+    },
+    "termos.html": {
+        "title": "Termos de Uso e Privacidade - Central Prática",
+        "desc": "Conheça nossos termos de uso e políticas de privacidade.",
+        "content": """
+            <h1>Termos de Uso e Privacidade</h1>
+            <p>A sua privacidade é prioridade para nós na Central Prática.</p>
+            <div style="margin-top: 20px;">
+                <p><strong>Uso das Ferramentas:</strong> Nossos utilitários são disponibilizados para auxílio pessoal, comercial e de marketing sem garantias de ganhos ou desempenho em plataformas de terceiros.</p>
+                <p><strong>Anúncios e Cookies:</strong> Utilizamos redes de anúncios de terceiros (como Google AdSense e Monetag) para exibir publicidade relevante. Estas redes podem utilizar cookies para otimizar a exibição de anúncios.</p>
+                <p><strong>Privacidade de Dados:</strong> Nenhum dado sensível inserido nas ferramentas de texto ou imagens é armazenado em nossos servidores.</p>
+            </div>
+        """
+    }
+}
 
 FERRAMENTAS = {
     "fontes.html": {
@@ -490,6 +524,8 @@ def gerar_sitemap():
     xml.append(f'  <url><loc>{DOMINIO_SITE}/index.html</loc><lastmod>{data_hoje}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>')
     for f_nome in FERRAMENTAS.keys():
         xml.append(f'  <url><loc>{DOMINIO_SITE}/{f_nome}</loc><lastmod>{data_hoje}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>')
+    for s_nome in STATIC_PAGES.keys():
+        xml.append(f'  <url><loc>{DOMINIO_SITE}/{s_nome}</loc><lastmod>{data_hoje}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>')
     xml.append('</urlset>')
     with open("sitemap.xml", "w", encoding="utf-8") as f: f.write("\n".join(xml))
 
@@ -510,21 +546,76 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Central Prática completa com SEO avançado...")
+    print("Gerando Central Prática profissional com páginas institucionais...")
     from jinja2 import Template
     
+    # Gerar Index
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(Template(INDEX_TEMPLATE).render(ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, licenca_rodape=LICENCA_RODAPE))
+        f.write(Template(INDEX_TEMPLATE).render(ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, rodape_autentico=RODAPE_AUTENTICO))
     
+    # Gerar Páginas Estáticas (FAQ e Termos)
+    static_layout = Template("""
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{ adsense_script | safe }}
+        {{ monetag_script | safe }}
+        {{ google_meta | safe }}
+        <title>{{ page.title }}</title>
+        <meta name="description" content="{{ page.desc }}">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+        <style>
+            :root { 
+                --primary: #2563eb; --primary-dark: #1d4ed8; --bg-color: #f1f5f9; 
+                --card-bg: #ffffff; --text: #0f172a; --text-light: #64748b; --border-color: #e2e8f0;
+            }
+            [data-theme="dark"] { 
+                --primary: #3b82f6; --primary-dark: #60a5fa; --bg-color: #030712; 
+                --card-bg: #111827; --text: #f9fafb; --text-light: #9ca3af; --border-color: #1f2937;
+            }
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg-color); margin: 0; padding: 0; }
+            .navbar { background: var(--card-bg); border-bottom: 1px solid var(--border-color); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+            .back-link { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+            .container { max-width: 650px; margin: 25px auto; padding: 0 15px; }
+            .content-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 30px 25px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
+            .content-box h1 { color: var(--primary); font-size: 24px; margin-top: 0; }
+            .content-box p { color: var(--text-light); font-size: 14px; line-height: 1.7; }
+            footer { text-align: center; margin-top: 35px; }
+        </style>
+    </head>
+    <body data-theme="light">
+        <div class="navbar">
+            <a href="index.html" class="back-link">← Voltar ao Início</a>
+        </div>
+        <div class="container">
+            {{ ad_banner | safe }}
+            <div class="content-box">
+                {{ page.content | safe }}
+            </div>
+            {{ ad_banner | safe }}
+            <footer>
+                {{ rodape_autentico | safe }}
+            </footer>
+        </div>
+    </body>
+    </html>
+    """)
+    
+    for filename, pdata in STATIC_PAGES.items():
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(static_layout.render(page=pdata, ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, rodape_autentico=RODAPE_AUTENTICO))
+
+    # Gerar Ferramentas
     t_layout = Template(TOOL_LAYOUT)
     for filename, data in FERRAMENTAS.items():
         with open(filename, "w", encoding="utf-8") as f:
-            f.write(t_layout.render(tool=data, ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, licenca_rodape=LICENCA_RODAPE))
+            f.write(t_layout.render(tool=data, ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, rodape_autentico=RODAPE_AUTENTICO))
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Todas as novas ferramentas e textos de SEO foram gerados.")
+    print("Sucesso absoluto! Site autêntico com FAQ e Termos de Uso gerados.")
 
 if __name__ == "__main__":
     gerar_site()
-
