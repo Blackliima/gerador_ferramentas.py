@@ -7,8 +7,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="309679" async data-cfasync="false"></script>
     <meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />
-    <title>Gerador de Letras Diferentes - Central Prática</title>
-    <meta name="description" content="Digite o que quiser abaixo e escolha a letra estilizada perfeita para colar no Instagram, TikTok ou WhatsApp.">
+    <title>Gerador Avançado de Letras & Fontes - Central Prática</title>
+    <meta name="description" content="Digite o seu texto abaixo e escolha entre dezenas de estilos de letras estilizadas para colar no Instagram, TikTok ou WhatsApp.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -29,8 +29,8 @@
         .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
-        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea, input[type="text"], input[type="url"], select { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); }
         button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
         .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
@@ -65,16 +65,18 @@
 
         
         <div class="tool-box">
-            <h1>Gerador de Letras Diferentes</h1>
-            <p>Digite o que quiser abaixo e escolha a letra estilizada perfeita para colar no Instagram, TikTok ou WhatsApp.</p>
+            <h1>Gerador Avançado de Letras & Fontes</h1>
+            <p>Digite o seu texto abaixo e escolha entre dezenas de estilos de letras estilizadas para colar no Instagram, TikTok ou WhatsApp.</p>
             
-            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Exemplo legal</textarea>
+            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Central Prática</textarea>
             <div id="fontsOutput" style="margin-top: 15px;"></div>
             <script>
                 const mapas = {
                     'Negrito Moderno': {'a': '𝗮','b': '𝗯','c': '𝗰','d': '𝗱','e': '𝗲','f': '𝗳','g': '𝗴','h': '𝗵','i': '𝗶','j': '𝗷','k': '𝗸','l': '𝗹','m': '𝗺','n': '𝗻','o': '𝗼','p': '𝗽','q': '𝗾','r': '𝗿','s': '𝘀','t': '𝘁','u': '𝘂','v': '𝘃','w': '𝘄','x': '𝘅','y': '𝘆','z': '𝘇', ' ' : ' '},
-                    'Letra Gótica': {'a': '𝔞','b': '𝔟','c': '𝔠','d': '𝔡','e': 'ⓔ','f': '𝔣','g': '𝔤','h': '𝔥','i': '𝔦','j': '𝔧','k': '𝔨','l': 'ℓ','m': '𝔪','n': '𝔫','o': '𝔬','p': '𝔭','q': '𝔮','r': '𝔯','s': '𝔰','t': '𝔱','u': '𝔲','v': '𝔳','w': '𝔴','x': '𝔵','y': '𝔶','z': '𝔟', ' ' : ' '},
                     'Itálico Elegante': {'a': '𝘢','b': '𝘣','c': '𝘤','d': '𝘥','e': '𝘦','f': '𝘧','g': '𝘨','h': '𝘩','i': '𝘪','j': '𝘫','k': '𝘬','l': '𝘭','m': '𝘮','n': '𝘯','o': '𝘰','p': '𝘱','q': '𝘲','r': '𝘳','s': '𝘴','t': '𝘵','u': '𝘶','v': '𝘷','w': '𝘸','x': '𝘹','y': '𝘺','z': '𝘻', ' ' : ' '},
+                    'Negrito Itálico': {'a': '𝙖','b': '𝙗','c': '𝙘','d': '𝙙','e': '𝙚','f': '𝙛','g': '𝙜','h': '𝙝','i': '𝙞','j': 'j','k': '𝙠','l': '𝙡','m': '𝙢','n': '𝙣','o': '𝙤','p': '𝙥','q': '𝙦','r': '𝙧','s': '𝙨','t': '𝙩','u': '𝙪','v': '𝙫','w': '𝙬','x': '𝙭','y': '𝙮','z': 'զ', ' ' : ' '},
+                    'Letra Gótica': {'a': '𝔞','b': '𝔟','c': '𝔠','d': '𝔡','e': 'ⓔ','f': '𝔣','g': '𝔤','h': '𝔥','i': '𝔦','j': '𝔧','k': '𝔨','l': 'ℓ','m': '𝔪','n': '𝔫','o': '𝔬','p': '𝔭','q': '𝔮','r': '𝔯','s': '𝔰','t': '𝔱','u': '𝔲','v': '𝔳','w': '𝔴','x': '𝔵','y': '𝔶','z': '𝔃', ' ' : ' '},
+                    'Letras Circuladas': {'a': 'ⓐ','b': 'ⓑ','c': 'ⓒ','d': 'ⓓ','e': 'ⓔ','f': 'ⓕ','g': 'ⓖ','h': 'ⓗ','i': 'ⓘ','j': 'ⓙ','k': 'ⓚ','l': 'ⓛ','m': 'ⓜ','n': 'ⓝ','o': 'ⓞ','p': 'ⓟ','q': 'ⓠ','r': 'ⓡ','s': 'ⓢ','t': 'ⓣ','u': 'ⓤ','v': 'ⓥ','w': 'ⓦ','x': 'ⓧ','y': 'ⓨ','z': 'ⓩ', ' ' : ' '},
                     'Espaçado Estiloso': {'a': '𝚊 ','b': '𝚋 ','c': '𝚌 ','d': '𝚍 ','e': '𝚎 ','f': '𝚏 ','g': '𝚐 ','h': '𝚑 ','i': '𝚒 ','j': '𝚓 ','k': '𝚔 ','l': '𝚕 ','m': '𝚖 ','n': '𝚗 ','o': '𝚘 ','p': '𝚙 ','q': '𝚚 ','r': '𝚛 ','s': '𝚜 ','t': '𝚝 ','u': '𝚞 ','v': '𝚟 ','w': '𝚠 ','x': '𝚡 ','y': '𝚢 ','z': '𝚣 ', ' ' : '   '}
                 };
                 function gerarFontes() {

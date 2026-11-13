@@ -7,8 +7,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="309679" async data-cfasync="false"></script>
     <meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />
-    <title>Diminuir e Compactar Fotos - Central Prática</title>
-    <meta name="description" content="Escolha uma imagem na galeria do seu celular para reduzir o peso dela na hora, mantendo uma ótima qualidade.">
+    <title>Compressor de Fotos Inteligente - Central Prática</title>
+    <meta name="description" content="Selecione uma foto da galeria do seu celular para reduzir o tamanho e o peso do arquivo de forma rápida e segura.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -29,8 +29,8 @@
         .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
-        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea, input[type="text"], input[type="url"], select { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); }
         button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
         .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
@@ -65,17 +65,22 @@
 
         
         <div class="tool-box">
-            <h1>Diminuir e Compactar Fotos</h1>
-            <p>Escolha uma imagem na galeria do seu celular para reduzir o peso dela na hora, mantendo uma ótima qualidade.</p>
+            <h1>Compressor de Fotos Inteligente</h1>
+            <p>Selecione uma foto da galeria do seu celular para reduzir o tamanho e o peso do arquivo de forma rápida e segura.</p>
             
             <input type="file" id="uploadImg" accept="image/*" style="margin-bottom:15px; font-size:14px; padding:12px; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; width:100%; box-sizing:border-box;" onchange="comprimirImagem(event)">
+            
             <div id="statusCompress" style="font-size:13px; font-weight:700; color:var(--text-light); margin-bottom:12px; text-align:center;"></div>
             <div id="resultadoCompress" style="text-align:center;"></div>
+            
             <script>
                 function comprimirImagem(e) {
                     let file = e.target.files[0];
                     if(!file) return;
-                    document.getElementById('statusCompress').innerText = "Processando sua foto com carinho...";
+                    
+                    let tamanhoOriginalMB = (file.size / (1024*1024)).toFixed(2);
+                    document.getElementById('statusCompress').innerText = `Foto original: ${tamanhoOriginalMB} MB. Compactando...`;
+                    
                     let reader = new FileReader();
                     reader.onload = function(event) {
                         let img = new Image();
@@ -83,15 +88,18 @@
                         img.onload = function() {
                             let canvas = document.createElement('canvas');
                             let ctx = canvas.getContext('2d');
-                            let maxW = 900;
+                            let maxW = 1000;
                             let scale = maxW / img.width;
                             if (scale > 1) scale = 1;
                             canvas.width = img.width * scale;
                             canvas.height = img.height * scale;
                             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                            let dataUrl = canvas.toDataURL('image/jpeg', 0.75);
-                            document.getElementById('statusCompress').innerText = "Pronto! Sua foto ficou bem mais leve.";
-                            document.getElementById('resultadoCompress').innerHTML = `<a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Leve Agora</a>`;
+                            
+                            let dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                            document.getElementById('statusCompress').innerText = `Pronto! Sua foto foi otimizada com sucesso.`;
+                            document.getElementById('resultadoCompress').innerHTML = `
+                                <a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Compactada</a>
+                            `;
                         }
                     }
                     reader.readAsDataURL(file);

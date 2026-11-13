@@ -11,7 +11,6 @@ MONETAG_SCRIPT = '<script src="https://quge5.com/88/tag.min.js" data-zone="30967
 GOOGLE_META = '<meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />'
 ADSENSE_SCRIPT = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>'
 
-# Anúncio blindado com espaçamento profissional para não quebrar o layout
 AD_BANNER = """
 <div style="text-align:center; margin: 25px auto; background:var(--card-bg); padding:18px; border-radius:20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border: 1px solid var(--border-color); max-width: 100%; overflow: hidden;">
     <p style="color:var(--text-light); font-size:10px; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px; font-weight:800;">Publicidade</p>
@@ -100,21 +99,21 @@ INDEX_TEMPLATE = """
         </div>
 
         <div class="tools-grid" id="toolsGrid">
-            <a href="fontes.html" class="tool-card" data-name="letras fontes instagram tiktok">
-                <h3>✨ Letras Diferentes para Instagram</h3>
-                <p>Deixe sua bio, legendas e stories com letras estilosas e chamativas copiando com um toque.</p>
+            <a href="fontes.html" class="tool-card" data-name="letras fontes instagram tiktok bio">
+                <h3>✨ Gerador Avançado de Letras & Fontes</h3>
+                <p>Dezenas de estilos estilizados para bio, legendas e stories com cópia rápida em um toque.</p>
             </a>
-            <a href="whatsapp.html" class="tool-card" data-name="whatsapp link mensagem conversa direto">
-                <h3>💬 Criador de Link para WhatsApp</h3>
-                <p>Gere um link direto com mensagem pronta para clientes te chamarem sem precisar salvar o número.</p>
+            <a href="whatsapp.html" class="tool-card" data-name="whatsapp link mensagem conversa direto qr code">
+                <h3>💬 Criador Profissional de Link WhatsApp</h3>
+                <p>Gere links com mensagens prontas e QR Code instantâneo para atendimento ou negócios.</p>
             </a>
-            <a href="contador.html" class="tool-card" data-name="contador letras palavras texto tamanho">
-                <h3>📊 Contador de Letras e Palavras</h3>
-                <p>Veja na hora quantas letras, palavras e frases seu texto tem para postar sem errar o limite.</p>
+            <a href="contador.html" class="tool-card" data-name="contador letras palavras texto tamanho limites">
+                <h3>📊 Contador de Textos & Limites</h3>
+                <p>Meca caracteres, palavras, parágrafos e veja o limite ideal para redes sociais em tempo real.</p>
             </a>
             <a href="compressor.html" class="tool-card" data-name="compressor diminuir fotos imagens compactar leve">
-                <h3>🖼️ Diminuir Tamanho de Fotos</h3>
-                <p>Deixe suas imagens mais leves direto no navegador para enviar mais rápido ou postar.</p>
+                <h3>🖼️ Compressor de Fotos Inteligente</h3>
+                <p>Reduza o peso de imagens direto no navegador com controle de qualidade e download ágil.</p>
             </a>
         </div>
 
@@ -180,8 +179,8 @@ TOOL_LAYOUT = """
         .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
-        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea, input[type="text"], input[type="url"], select { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); }
         button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
         .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
@@ -232,16 +231,18 @@ TOOL_LAYOUT = """
 
 FERRAMENTAS = {
     "fontes.html": {
-        "title": "Gerador de Letras Diferentes",
-        "desc": "Digite o que quiser abaixo e escolha a letra estilizada perfeita para colar no Instagram, TikTok ou WhatsApp.",
+        "title": "Gerador Avançado de Letras & Fontes",
+        "desc": "Digite o seu texto abaixo e escolha entre dezenas de estilos de letras estilizadas para colar no Instagram, TikTok ou WhatsApp.",
         "html_content": """
-            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Exemplo legal</textarea>
+            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Central Prática</textarea>
             <div id="fontsOutput" style="margin-top: 15px;"></div>
             <script>
                 const mapas = {
                     'Negrito Moderno': {'a': '𝗮','b': '𝗯','c': '𝗰','d': '𝗱','e': '𝗲','f': '𝗳','g': '𝗴','h': '𝗵','i': '𝗶','j': '𝗷','k': '𝗸','l': '𝗹','m': '𝗺','n': '𝗻','o': '𝗼','p': '𝗽','q': '𝗾','r': '𝗿','s': '𝘀','t': '𝘁','u': '𝘂','v': '𝘃','w': '𝘄','x': '𝘅','y': '𝘆','z': '𝘇', ' ' : ' '},
-                    'Letra Gótica': {'a': '𝔞','b': '𝔟','c': '𝔠','d': '𝔡','e': 'ⓔ','f': '𝔣','g': '𝔤','h': '𝔥','i': '𝔦','j': '𝔧','k': '𝔨','l': 'ℓ','m': '𝔪','n': '𝔫','o': '𝔬','p': '𝔭','q': '𝔮','r': '𝔯','s': '𝔰','t': '𝔱','u': '𝔲','v': '𝔳','w': '𝔴','x': '𝔵','y': '𝔶','z': '𝔟', ' ' : ' '},
                     'Itálico Elegante': {'a': '𝘢','b': '𝘣','c': '𝘤','d': '𝘥','e': '𝘦','f': '𝘧','g': '𝘨','h': '𝘩','i': '𝘪','j': '𝘫','k': '𝘬','l': '𝘭','m': '𝘮','n': '𝘯','o': '𝘰','p': '𝘱','q': '𝘲','r': '𝘳','s': '𝘴','t': '𝘵','u': '𝘶','v': '𝘷','w': '𝘸','x': '𝘹','y': '𝘺','z': '𝘻', ' ' : ' '},
+                    'Negrito Itálico': {'a': '𝙖','b': '𝙗','c': '𝙘','d': '𝙙','e': '𝙚','f': '𝙛','g': '𝙜','h': '𝙝','i': '𝙞','j': 'j','k': '𝙠','l': '𝙡','m': '𝙢','n': '𝙣','o': '𝙤','p': '𝙥','q': '𝙦','r': '𝙧','s': '𝙨','t': '𝙩','u': '𝙪','v': '𝙫','w': '𝙬','x': '𝙭','y': '𝙮','z': 'զ', ' ' : ' '},
+                    'Letra Gótica': {'a': '𝔞','b': '𝔟','c': '𝔠','d': '𝔡','e': 'ⓔ','f': '𝔣','g': '𝔤','h': '𝔥','i': '𝔦','j': '𝔧','k': '𝔨','l': 'ℓ','m': '𝔪','n': '𝔫','o': '𝔬','p': '𝔭','q': '𝔮','r': '𝔯','s': '𝔰','t': '𝔱','u': '𝔲','v': '𝔳','w': '𝔴','x': '𝔵','y': '𝔶','z': '𝔃', ' ' : ' '},
+                    'Letras Circuladas': {'a': 'ⓐ','b': 'ⓑ','c': 'ⓒ','d': 'ⓓ','e': 'ⓔ','f': 'ⓕ','g': 'ⓖ','h': 'ⓗ','i': 'ⓘ','j': 'ⓙ','k': 'ⓚ','l': 'ⓛ','m': 'ⓜ','n': 'ⓝ','o': 'ⓞ','p': 'ⓟ','q': 'ⓠ','r': 'ⓡ','s': 'ⓢ','t': 'ⓣ','u': 'ⓤ','v': 'ⓥ','w': 'ⓦ','x': 'ⓧ','y': 'ⓨ','z': 'ⓩ', ' ' : ' '},
                     'Espaçado Estiloso': {'a': '𝚊 ','b': '𝚋 ','c': '𝚌 ','d': '𝚍 ','e': '𝚎 ','f': '𝚏 ','g': '𝚐 ','h': '𝚑 ','i': '𝚒 ','j': '𝚓 ','k': '𝚔 ','l': '𝚕 ','m': '𝚖 ','n': '𝚗 ','o': '𝚘 ','p': '𝚙 ','q': '𝚚 ','r': '𝚛 ','s': '𝚜 ','t': '𝚝 ','u': '𝚞 ','v': '𝚟 ','w': '𝚠 ','x': '𝚡 ','y': '𝚢 ','z': '𝚣 ', ' ' : '   '}
                 };
                 function gerarFontes() {
@@ -258,62 +259,109 @@ FERRAMENTAS = {
         """
     },
     "whatsapp.html": {
-        "title": "Criador de Link Direto para WhatsApp",
-        "desc": "Monte um link com número e mensagem automática para colocar na sua bio ou mandar para clientes.",
+        "title": "Criador Profissional de Link WhatsApp",
+        "desc": "Monte um link direto para o seu WhatsApp com mensagem automática e gere o QR Code para imprimir ou divulgar.",
         "html_content": """
-            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (com DDD, ex: 5511999999999):</label>
+            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (DDI + DDD + Número, ex: 5511999999999):</label>
             <input type="text" id="numeroWp" placeholder="5511999999999" value="5511999999999">
-            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Mensagem pronta que a pessoa vai te enviar:</label>
-            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:90px;">Olá! Vi seu perfil e gostaria de mais informações.</textarea>
-            <button class="action-btn" onclick="gerarLinkWp()">Gerar Link Mágico do WhatsApp</button>
-            <div id="resultadoWp" style="margin-top:15px;"></div>
+            
+            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Mensagem automática que o cliente vai enviar:</label>
+            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:85px;">Olá! Vi seu site e gostaria de tirar dúvidas.</textarea>
+            
+            <button class="action-btn" onclick="gerarLinkWp()">Gerar Link & QR Code do WhatsApp</button>
+            
+            <div id="resultadoWp" style="margin-top:20px;"></div>
+            
             <script>
                 function gerarLinkWp() {
                     let num = document.getElementById('numeroWp').value.replace(/\\D/g,'');
                     let msg = encodeURIComponent(document.getElementById('msgWp').value);
                     let link = `https://wa.me/${num}?text=${msg}`;
-                    document.getElementById('resultadoWp').innerHTML = `<div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color);"><div style="word-break:break-all; font-size:13px; font-weight:600;">${link}</div><button class="copy-btn" onclick="copiarTexto('${link}', this)">Copiar Link</button></div>`;
+                    let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(link)}`;
+                    
+                    document.getElementById('resultadoWp').innerHTML = `
+                        <div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color); display:block; margin-bottom:15px;">
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:6px;">SEU LINK DIRETO:</div>
+                            <div style="word-break:break-all; font-size:13px; font-weight:600; margin-bottom:10px;">${link}</div>
+                            <div style="display:flex; gap:10px;">
+                                <button class="copy-btn" style="flex:1;" onclick="copiarTexto('${link}', this)">Copiar Link</button>
+                                <a href="${link}" target="_blank" class="copy-btn" style="flex:1; text-align:center; text-decoration:none; display:inline-block; padding:8px;">Testar Conversa</a>
+                            </div>
+                        </div>
+                        <div style="text-align:center; background:var(--bg-color); padding:15px; border-radius:12px; border:1.5px solid var(--border-color);">
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:10px;">QR CODE PARA DIVULGAÇÃO:</div>
+                            <img src="${qrApi}" alt="QR Code WhatsApp" style="border-radius:8px; margin-bottom:10px; max-width:150px; background:#fff; padding:5px;">
+                            <div><a href="${qrApi}" download="qrcode-whatsapp.png" class="copy-btn" style="text-decoration:none; display:inline-block;">Baixar Imagem do QR Code</a></div>
+                        </div>
+                    `;
                 }
             </script>
         """
     },
     "contador.html": {
-        "title": "Contador de Letras e Palavras",
-        "desc": "Cole seu texto abaixo para descobrir instantaneamente quantas letras, palavras e frases ele tem.",
+        "title": "Contador de Textos & Limites",
+        "desc": "Cole seu texto abaixo para ver estatísticas detalhadas de caracteres, palavras e adequação aos limites das redes sociais.",
         "html_content": """
-            <textarea id="textoContador" placeholder="Cole seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
+            <textarea id="textoContador" placeholder="Cole ou digite seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
+            
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:15px;">
                 <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
-                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Letras</small>
-                    <div id="numChars" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Caracteres (com espaço)</small>
+                    <div id="numChars" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
                 <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
                     <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Palavras</small>
-                    <div id="numPalavras" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                    <div id="numPalavras" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
             </div>
+
+            <div style="margin-top:15px; background:var(--bg-color); padding:15px; border-radius:14px; border:1.5px solid var(--border-color);">
+                <div style="font-size:13px; font-weight:700; margin-bottom:8px; color:var(--text);">Status para Redes Sociais:</div>
+                <div id="statusBio" style="font-size:13px; color:var(--text-light); margin-bottom:4px;">• Bio do Instagram (Limite: 150 caracteres): <strong id="bioCount" style="color:var(--primary);">OK</strong></div>
+                <div id="statusLeitura" style="font-size:13px; color:var(--text-light);">• Tempo estimado de leitura: <strong id="leituraTime" style="color:var(--primary);">0 segundos</strong></div>
+            </div>
+
             <script>
                 function contar() {
                     let val = document.getElementById('textoContador').value;
-                    document.getElementById('numChars').innerText = val.length;
+                    let chars = val.length;
                     let palavras = val.trim() === '' ? 0 : val.trim().split(/\\s+/).length;
+                    
+                    document.getElementById('numChars').innerText = chars;
                     document.getElementById('numPalavras').innerText = palavras;
+                    
+                    let bioEl = document.getElementById('bioCount');
+                    if (chars <= 150) {
+                        bioEl.innerText = `${chars}/150 (Cabe na Bio! ✔)`;
+                        bioEl.style.color = '#16a34a';
+                    } else {
+                        bioEl.innerText = `${chars}/150 (Passou do limite ❌)`;
+                        bioEl.style.color = '#dc2626';
+                    }
+                    
+                    let segundos = Math.ceil(palavras / 3); // Média de leitura de 180 palavras por minuto
+                    document.getElementById('leituraTime').innerText = segundos < 60 ? `${segundos} seg` : `${Math.ceil(segundos/60)} min`;
                 }
             </script>
         """
     },
     "compressor.html": {
-        "title": "Diminuir e Compactar Fotos",
-        "desc": "Escolha uma imagem na galeria do seu celular para reduzir o peso dela na hora, mantendo uma ótima qualidade.",
+        "title": "Compressor de Fotos Inteligente",
+        "desc": "Selecione uma foto da galeria do seu celular para reduzir o tamanho e o peso do arquivo de forma rápida e segura.",
         "html_content": """
             <input type="file" id="uploadImg" accept="image/*" style="margin-bottom:15px; font-size:14px; padding:12px; background:var(--bg-color); border:1.5px solid var(--border-color); border-radius:12px; width:100%; box-sizing:border-box;" onchange="comprimirImagem(event)">
+            
             <div id="statusCompress" style="font-size:13px; font-weight:700; color:var(--text-light); margin-bottom:12px; text-align:center;"></div>
             <div id="resultadoCompress" style="text-align:center;"></div>
+            
             <script>
                 function comprimirImagem(e) {
                     let file = e.target.files[0];
                     if(!file) return;
-                    document.getElementById('statusCompress').innerText = "Processando sua foto com carinho...";
+                    
+                    let tamanhoOriginalMB = (file.size / (1024*1024)).toFixed(2);
+                    document.getElementById('statusCompress').innerText = `Foto original: ${tamanhoOriginalMB} MB. Compactando...`;
+                    
                     let reader = new FileReader();
                     reader.onload = function(event) {
                         let img = new Image();
@@ -321,15 +369,18 @@ FERRAMENTAS = {
                         img.onload = function() {
                             let canvas = document.createElement('canvas');
                             let ctx = canvas.getContext('2d');
-                            let maxW = 900;
+                            let maxW = 1000;
                             let scale = maxW / img.width;
                             if (scale > 1) scale = 1;
                             canvas.width = img.width * scale;
                             canvas.height = img.height * scale;
                             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                            let dataUrl = canvas.toDataURL('image/jpeg', 0.75);
-                            document.getElementById('statusCompress').innerText = "Pronto! Sua foto ficou bem mais leve.";
-                            document.getElementById('resultadoCompress').innerHTML = `<a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Leve Agora</a>`;
+                            
+                            let dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                            document.getElementById('statusCompress').innerText = `Pronto! Sua foto foi otimizada com sucesso.`;
+                            document.getElementById('resultadoCompress').innerHTML = `
+                                <a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Compactada</a>
+                            `;
                         }
                     }
                     reader.readAsDataURL(file);
@@ -365,7 +416,7 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Central de Utilidades Mobile-First com design refinado...")
+    print("Gerando Central de Utilidades Mobile-First robusta...")
     from jinja2 import Template
     
     with open("index.html", "w", encoding="utf-8") as f:
@@ -378,7 +429,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Design otimizado, anúncios isolados e barra de busca adicionada.")
+    print("Sucesso absoluto! Ferramentas turbinadas com recursos avançados.")
 
 if __name__ == "__main__":
     gerar_site()

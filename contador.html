@@ -7,8 +7,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="309679" async data-cfasync="false"></script>
     <meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />
-    <title>Contador de Letras e Palavras - Central Prática</title>
-    <meta name="description" content="Cole seu texto abaixo para descobrir instantaneamente quantas letras, palavras e frases ele tem.">
+    <title>Contador de Textos & Limites - Central Prática</title>
+    <meta name="description" content="Cole seu texto abaixo para ver estatísticas detalhadas de caracteres, palavras e adequação aos limites das redes sociais.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -29,8 +29,8 @@
         .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
-        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea, input[type="text"], input[type="url"], select { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); }
         button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
         .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
@@ -65,26 +65,48 @@
 
         
         <div class="tool-box">
-            <h1>Contador de Letras e Palavras</h1>
-            <p>Cole seu texto abaixo para descobrir instantaneamente quantas letras, palavras e frases ele tem.</p>
+            <h1>Contador de Textos & Limites</h1>
+            <p>Cole seu texto abaixo para ver estatísticas detalhadas de caracteres, palavras e adequação aos limites das redes sociais.</p>
             
-            <textarea id="textoContador" placeholder="Cole seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
+            <textarea id="textoContador" placeholder="Cole ou digite seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
+            
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:15px;">
                 <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
-                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Letras</small>
-                    <div id="numChars" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                    <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Caracteres (com espaço)</small>
+                    <div id="numChars" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
                 <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
                     <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Total de Palavras</small>
-                    <div id="numPalavras" style="font-size:26px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
+                    <div id="numPalavras" style="font-size:24px; font-weight:800; color:var(--primary); margin-top:4px;">0</div>
                 </div>
             </div>
+
+            <div style="margin-top:15px; background:var(--bg-color); padding:15px; border-radius:14px; border:1.5px solid var(--border-color);">
+                <div style="font-size:13px; font-weight:700; margin-bottom:8px; color:var(--text);">Status para Redes Sociais:</div>
+                <div id="statusBio" style="font-size:13px; color:var(--text-light); margin-bottom:4px;">• Bio do Instagram (Limite: 150 caracteres): <strong id="bioCount" style="color:var(--primary);">OK</strong></div>
+                <div id="statusLeitura" style="font-size:13px; color:var(--text-light);">• Tempo estimado de leitura: <strong id="leituraTime" style="color:var(--primary);">0 segundos</strong></div>
+            </div>
+
             <script>
                 function contar() {
                     let val = document.getElementById('textoContador').value;
-                    document.getElementById('numChars').innerText = val.length;
+                    let chars = val.length;
                     let palavras = val.trim() === '' ? 0 : val.trim().split(/\s+/).length;
+                    
+                    document.getElementById('numChars').innerText = chars;
                     document.getElementById('numPalavras').innerText = palavras;
+                    
+                    let bioEl = document.getElementById('bioCount');
+                    if (chars <= 150) {
+                        bioEl.innerText = `${chars}/150 (Cabe na Bio! ✔)`;
+                        bioEl.style.color = '#16a34a';
+                    } else {
+                        bioEl.innerText = `${chars}/150 (Passou do limite ❌)`;
+                        bioEl.style.color = '#dc2626';
+                    }
+                    
+                    let segundos = Math.ceil(palavras / 3); // Média de leitura de 180 palavras por minuto
+                    document.getElementById('leituraTime').innerText = segundos < 60 ? `${segundos} seg` : `${Math.ceil(segundos/60)} min`;
                 }
             </script>
         

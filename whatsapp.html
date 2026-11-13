@@ -7,8 +7,8 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5379027874215422" crossorigin="anonymous"></script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="309679" async data-cfasync="false"></script>
     <meta name="google-site-verification" content="pbgwZbVwgKMwqqqGYFcHeGGbV7EM7nBdlns1c_DN_Sw" />
-    <title>Criador de Link Direto para WhatsApp - Central Prática</title>
-    <meta name="description" content="Monte um link com número e mensagem automática para colocar na sua bio ou mandar para clientes.">
+    <title>Criador Profissional de Link WhatsApp - Central Prática</title>
+    <meta name="description" content="Monte um link direto para o seu WhatsApp com mensagem automática e gere o QR Code para imprimir ou divulgar.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -29,8 +29,8 @@
         .tool-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px 20px; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
         .tool-box h1 { margin: 0 0 10px 0; color: var(--primary); font-size: 22px; font-weight: 800; }
         .tool-box p { margin: 0 0 20px 0; font-size: 14px; color: var(--text-light); line-height: 1.5; }
-        textarea, input[type="text"], input[type="url"] { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
-        textarea:focus, input:focus { border-color: var(--primary); }
+        textarea, input[type="text"], input[type="url"], select { width: 100%; padding: 14px 16px; border: 1.5px solid var(--border-color); border-radius: 14px; background: var(--bg-color); color: var(--text); font-size: 15px; box-sizing: border-box; margin-bottom: 15px; outline: none; transition: border-color 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); }
         button.action-btn { background: var(--primary); color: white; border: none; padding: 15px 20px; border-radius: 14px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37,99,235,0.25); }
         button.action-btn:hover { background: var(--primary-dark); }
         .output-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-color); gap: 12px; }
@@ -65,21 +65,41 @@
 
         
         <div class="tool-box">
-            <h1>Criador de Link Direto para WhatsApp</h1>
-            <p>Monte um link com número e mensagem automática para colocar na sua bio ou mandar para clientes.</p>
+            <h1>Criador Profissional de Link WhatsApp</h1>
+            <p>Monte um link direto para o seu WhatsApp com mensagem automática e gere o QR Code para imprimir ou divulgar.</p>
             
-            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (com DDD, ex: 5511999999999):</label>
+            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Seu Número (DDI + DDD + Número, ex: 5511999999999):</label>
             <input type="text" id="numeroWp" placeholder="5511999999999" value="5511999999999">
-            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Mensagem pronta que a pessoa vai te enviar:</label>
-            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:90px;">Olá! Vi seu perfil e gostaria de mais informações.</textarea>
-            <button class="action-btn" onclick="gerarLinkWp()">Gerar Link Mágico do WhatsApp</button>
-            <div id="resultadoWp" style="margin-top:15px;"></div>
+            
+            <label style="font-size:13px; font-weight:700; display:block; margin-bottom:6px; color:var(--text);">Mensagem automática que o cliente vai enviar:</label>
+            <textarea id="msgWp" placeholder="Digite a mensagem..." style="height:85px;">Olá! Vi seu site e gostaria de tirar dúvidas.</textarea>
+            
+            <button class="action-btn" onclick="gerarLinkWp()">Gerar Link & QR Code do WhatsApp</button>
+            
+            <div id="resultadoWp" style="margin-top:20px;"></div>
+            
             <script>
                 function gerarLinkWp() {
                     let num = document.getElementById('numeroWp').value.replace(/\D/g,'');
                     let msg = encodeURIComponent(document.getElementById('msgWp').value);
                     let link = `https://wa.me/${num}?text=${msg}`;
-                    document.getElementById('resultadoWp').innerHTML = `<div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color);"><div style="word-break:break-all; font-size:13px; font-weight:600;">${link}</div><button class="copy-btn" onclick="copiarTexto('${link}', this)">Copiar Link</button></div>`;
+                    let qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(link)}`;
+                    
+                    document.getElementById('resultadoWp').innerHTML = `
+                        <div class="output-item" style="background:var(--bg-color); padding:14px; border-radius:12px; border:1.5px solid var(--border-color); display:block; margin-bottom:15px;">
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:6px;">SEU LINK DIRETO:</div>
+                            <div style="word-break:break-all; font-size:13px; font-weight:600; margin-bottom:10px;">${link}</div>
+                            <div style="display:flex; gap:10px;">
+                                <button class="copy-btn" style="flex:1;" onclick="copiarTexto('${link}', this)">Copiar Link</button>
+                                <a href="${link}" target="_blank" class="copy-btn" style="flex:1; text-align:center; text-decoration:none; display:inline-block; padding:8px;">Testar Conversa</a>
+                            </div>
+                        </div>
+                        <div style="text-align:center; background:var(--bg-color); padding:15px; border-radius:12px; border:1.5px solid var(--border-color);">
+                            <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-bottom:10px;">QR CODE PARA DIVULGAÇÃO:</div>
+                            <img src="${qrApi}" alt="QR Code WhatsApp" style="border-radius:8px; margin-bottom:10px; max-width:150px; background:#fff; padding:5px;">
+                            <div><a href="${qrApi}" download="qrcode-whatsapp.png" class="copy-btn" style="text-decoration:none; display:inline-block;">Baixar Imagem do QR Code</a></div>
+                        </div>
+                    `;
                 }
             </script>
         
