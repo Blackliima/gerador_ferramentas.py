@@ -36,7 +36,7 @@ RODAPE_AUTENTICO = """
         <a href="faq.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">FAQ</a>
         <a href="termos.html" style="color: var(--primary); text-decoration: none; font-weight: 700;">Termos de Uso</a>
     </div>
-    <p style="margin: 0 0 6px 0;"><strong>Central Prática</strong> - Ferramentas rápidas e gratuitas para o seu dia a dia.</p>
+    <p style="margin: 0 0 6px 0;"><strong>Nexto Utilidades Práticas</strong> - Ferramentas rápidas e gratuitas para o seu dia a dia.</p>
     <p style="margin: 0;">© 2026 Todos os direitos reservados.</p>
 </div>
 """
@@ -50,7 +50,7 @@ INDEX_TEMPLATE = """
     {{ adsense_script | safe }}
     {{ monetag_script | safe }}
     {{ google_meta | safe }}
-    <title>Central Prática - Ferramentas Rápidas e Gratuitas para Celular</title>
+    <title>Nexto Utilidades Práticas - Ferramentas Rápidas e Gratuitas para Celular</title>
     <meta name="description" content="Central de utilidades mobile super rápidas: gerador de fontes para Instagram, encurtador de WhatsApp, contador de caracteres, compactador de fotos e mais.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
@@ -92,7 +92,7 @@ INDEX_TEMPLATE = """
 </head>
 <body data-theme="light">
     <div class="navbar">
-        <a href="index.html" class="logo">⚡ Central Prática</a>
+        <a href="index.html" class="logo">⚡ Nexto Utilidades Práticas</a>
         <button class="theme-btn" onclick="toggleTheme()">🌓 Tema</button>
     </div>
     <div class="container">
@@ -135,7 +135,7 @@ INDEX_TEMPLATE = """
         </div>
 
         <div class="seo-box">
-            <h2>Por que usar a Central Prática?</h2>
+            <h2>Por que usar o Nexto Utilidades Práticas?</h2>
             <p>Nossa plataforma foi desenvolvida pensando na velocidade e na praticidade de quem usa o celular todos os dias. Seja para criar conteúdos criativos nas redes sociais, otimizar imagens ou automatizar conversas de vendas, nossas ferramentas rodam inteiramente no seu navegador, garantindo total privacidade, agilidade e zero consumo de memória do seu aparelho.</p>
         </div>
 
@@ -179,7 +179,7 @@ TOOL_LAYOUT = """
     {{ adsense_script | safe }}
     {{ monetag_script | safe }}
     {{ google_meta | safe }}
-    <title>{{ tool.title }} - Central Prática</title>
+    <title>{{ tool.title }} - Nexto Utilidades Práticas</title>
     <meta name="description" content="{{ tool.desc }}">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
@@ -265,7 +265,7 @@ TOOL_LAYOUT = """
 
 STATIC_PAGES = {
     "faq.html": {
-        "title": "Perguntas Frequentes (FAQ) - Central Prática",
+        "title": "Perguntas Frequentes (FAQ) - Nexto Utilidades Práticas",
         "desc": "Tire suas dúvidas sobre o uso das nossas ferramentas gratuitas para celular.",
         "content": """
             <h1>Perguntas Frequentes (FAQ)</h1>
@@ -278,11 +278,11 @@ STATIC_PAGES = {
         """
     },
     "termos.html": {
-        "title": "Termos de Uso e Privacidade - Central Prática",
+        "title": "Termos de Uso e Privacidade - Nexto Utilidades Práticas",
         "desc": "Conheça nossos termos de uso e políticas de privacidade.",
         "content": """
             <h1>Termos de Uso e Privacidade</h1>
-            <p>A sua privacidade é prioridade para nós na Central Prática.</p>
+            <p>A sua privacidade é prioridade para nós no Nexto Utilidades Práticas.</p>
             <div style="margin-top: 20px;">
                 <p><strong>Uso das Ferramentas:</strong> Nossos utilitários são disponibilizados para auxílio pessoal, comercial e de marketing sem garantias de ganhos ou desempenho em plataformas de terceiros.</p>
                 <p><strong>Anúncios e Cookies:</strong> Utilizamos redes de anúncios de terceiros (como Google AdSense e Monetag) para exibir publicidade relevante. Estas redes podem utilizar cookies para otimizar a exibição de anúncios.</p>
@@ -298,22 +298,22 @@ FERRAMENTAS = {
         "desc": "Digite o seu texto abaixo e escolha entre dezenas de estilos de letras estilizadas para colar no Instagram, TikTok ou WhatsApp.",
         "seo_text": "Este gerador utiliza caracteres unicode especiais para transformar frases comuns em fontes estéticas e atraentes. Perfeito para destacar sua biografia do Instagram, legendas do TikTok ou mensagens em negrito no WhatsApp.",
         "html_content": """
-            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Central Prática</textarea>
+            <textarea id="inputText" placeholder="Digite seu texto aqui..." oninput="gerarFontes()" style="height: 95px;">Nexto Prático</textarea>
             <div id="fontsOutput" style="margin-top: 15px;"></div>
             <script>
                 const mapas = {
                     'Negrito Moderno': {'a': '𝗮','b': '𝗯','c': '𝗰','d': '𝗱','e': '𝗲','f': '𝗳','g': '𝗴','h': '𝗵','i': '𝗶','j': '𝗷','k': '𝗸','l': '𝗹','m': '𝗺','n': '𝗻','o': '𝗼','p': '𝗽','q': '𝗾','r': '𝗿','s': '𝘀','t': '𝘁','u': '𝘂','v': '𝘃','w': '𝘄','x': '𝘅','y': '𝘆','z': '𝘇', ' ' : ' '},
                     'Itálico Elegante': {'a': '𝘢','b': '𝘣','c': '𝘤','d': '𝘥','e': '𝘦','f': '𝘧','g': '𝘨','h': '𝘩','i': '𝘪','j': '𝘫','k': '𝘬','l': '𝘭','m': '𝘮','n': '𝘯','o': '𝘰','p': '𝘱','q': '𝘲','r': '𝘳','s': '𝘴','t': '𝘵','u': '𝘶','v': '𝘷','w': '𝘸','x': '𝘹','y': '𝘺','z': '𝘻', ' ' : ' '},
-                    'Negrito Itálico': {'a': '𝙖','b': '𝙗','c': '𝙘','d': '𝙙','e': '𝙚','f': '𝙛','g': '𝙜','h': '𝙝','i': '𝙞','j': 'j','k': '𝙠','l': '𝙡','m': '𝙢','n': '𝙣','o': '𝙤','p': '𝙥','q': '𝙦','r': '𝙧','s': '𝙨','t': '𝙩','u': '𝙪','v': '𝙫','w': '𝙬','x': '𝙭','y': '𝙮','z': 'զ', ' ' : ' '},
+                    'Negrito Itálico': {'a': '𝙖','b': '𝙗','c': '𝙘','d': '𝙙','e': '𝙚','f': '𝙛','g': '𝙜','h': '𝙝','i': '𝙞','j': 'j','k': '�'𝙡','m': '𝙢','n': '𝙣','o': '𝙤','p': '𝙥','q': '𝙦','r': '𝙧','s': '𝙨','t': '𝙩','u': '𝙪','v': '𝙫','w': '𝙬','x': '𝙭','y': '𝙮','z': 'զ', ' ' : ' '},
                     'Letra Gótica': {'a': '𝔞','b': '𝔟','c': '𝔠','d': '𝔡','e': 'ⓔ','f': '𝔣','g': '𝔤','h': '𝔥','i': '𝔦','j': '𝔧','k': '𝔨','l': 'ℓ','m': '𝔪','n': '𝔫','o': '𝔬','p': '𝔭','q': '𝔮','r': '𝔯','s': '𝔰','t': '𝔱','u': '𝔲','v': '𝔳','w': '𝔴','x': '𝔵','y': '𝔶','z': '𝔃', ' ' : ' '},
                     'Letras Circuladas': {'a': 'ⓐ','b': 'ⓑ','c': 'ⓒ','d': 'ⓓ','e': 'ⓔ','f': 'ⓕ','g': 'ⓖ','h': 'ⓗ','i': 'ⓘ','j': 'ⓙ','k': 'ⓚ','l': 'ⓛ','m': 'ⓜ','n': 'ⓝ','o': 'ⓞ','p': 'ⓟ','q': 'ⓠ','r': 'ⓡ','s': 'ⓢ','t': 'ⓣ','u': 'ⓤ','v': 'ⓥ','w': 'ⓦ','x': 'ⓧ','y': 'ⓨ','z': 'ⓩ', ' ' : ' '},
-                    'Espaçado Estiloso': {'a': '𝚊 ','b': '𝚋 ','c': '𝚌 ','d': '𝚍 ','e': '𝚎 ','f': '𝚏 ','g': '𝚐 ','h': '𝚑 ','i': '𝚒 ','j': '𝚓 ','k': '𝚔 ','l': '𝚕 ','m': '𝚖 ','n': '𝚗 ','o': '𝚘 ','p': '𝚙 ','q': '𝚚 ','r': '𝚛 ','s': '𝚜 ','t': '𝚝 ','u': '𝚞 ','v': '𝚟 ','w': '𝚠 ','x': '𝚡 ','y': '𝚢 ','z': '𝚣 ', ' ' : '   '}
+                    'Espaçado Estiloso': {'a': '𝚊 ','b': '𝚋 ','c': '𝚌 ','d': '𝚍 ','e': '𝚎 ','f': '𝚏 ','g': '𝚐 ','h'𝚑 ','i': '𝚒 ','j': '𝚓 ','k': '𝚔 ','l': '𝚕 ','m': '𝚖 ','n': '𝚗 ','o': '𝚘 ','p': '𝚙 ','q': '𝚚 ','r': '𝚛 ','s': '𝚜 ','t': '𝚝 ','u': '𝚞 ','v': '𝚟 ','w': '𝚠 ','x': '𝚡 ','y': '𝚢 ','z': '𝚣 ', ' ' : '   '}
                 };
                 function gerarFontes() {
                     let txt = document.getElementById('inputText').value;
                     let html = '';
                     for (let [estilo, mapa] of Object.entries(mapas)) {
-                        let convertido = txt.split('').map(c => mapa[c.toLowerCase()] || c).join('');
+                      let convertido = txt.split('').map(c => mapa[c.toLowerCase()] || c).join('');
                         html += `<div class="output-item"><div style="overflow:hidden;"><small style="color:var(--text-light); font-weight:700; font-size:11px; text-transform:uppercase;">${estilo}</small><div style="font-size:16px; font-weight:700; margin-top:3px; word-break:break-all;">${convertido}</div></div><button class="copy-btn" onclick="copiarTexto('${convertido}', this)">Copiar</button></div>`;
                     }
                     document.getElementById('fontsOutput').innerHTML = html;
@@ -546,7 +546,7 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Central Prática profissional com páginas institucionais...")
+    print("Gerando Nexto Utilidades Práticas profissional...")
     from jinja2 import Template
     
     # Gerar Index
@@ -615,7 +615,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Site autêntico com FAQ e Termos de Uso gerados.")
+    print("Sucesso absoluto! Nome atualizado para Nexto Utilidades Práticas.")
 
 if __name__ == "__main__":
     gerar_site()
