@@ -53,6 +53,29 @@ INDEX_TEMPLATE = """
     {{ google_meta | safe }}
     <title>Nexto Utilidades Práticas - Ferramentas Inteligentes para o Dia a Dia</title>
     <meta name="description" content="Otimize seu tempo com utilidades digitais de alta performance: gerador de fontes, links diretos do WhatsApp, contadores e compactadores inteligentes.">
+    
+    <!-- Open Graph (OG) para Redes Sociais e WhatsApp -->
+    <meta property="og:title" content="Nexto Utilidades Práticas - Ferramentas Gratuitas">
+    <meta property="og:description" content="Utilidades digitais rápidas e seguras direto no seu navegador.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gerador-ferramentas-py.pages.dev/index.html">
+
+    <!-- Schema.org (JSON-LD) dados estruturados para o Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Nexto Utilidades Práticas",
+      "url": "https://gerador-ferramentas-py.pages.dev/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://gerador-ferramentas-py.pages.dev/index.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -182,6 +205,28 @@ TOOL_LAYOUT = """
     {{ google_meta | safe }}
     <title>{{ tool.title }} - Nexto Utilidades Práticas</title>
     <meta name="description" content="{{ tool.desc }}">
+    
+    <!-- Open Graph (OG) -->
+    <meta property="og:title" content="{{ tool.title }}">
+    <meta property="og:description" content="{{ tool.desc }}">
+    <meta property="og:type" content="article">
+
+    <!-- Schema.org Breadcrumb / Tool Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "{{ tool.title }}",
+      "operatingSystem": "All",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <style>
         :root { 
@@ -214,6 +259,15 @@ TOOL_LAYOUT = """
         .seo-content { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 25px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         .seo-content h2 { font-size: 17px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
         .seo-content p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
+        
+        /* Cluster de links internos para SEO */
+        .cluster-links { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 20px; border-radius: 20px; margin-bottom: 25px; }
+        .cluster-links h3 { font-size: 15px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
+        .cluster-links ul { margin: 0; padding-left: 20px; font-size: 14px; color: var(--text-light); }
+        .cluster-links li { margin-bottom: 6px; }
+        .cluster-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .cluster-links a:hover { text-decoration: underline; }
+
         footer { text-align: center; margin-top: 35px; }
     </style>
 </head>
@@ -237,6 +291,19 @@ TOOL_LAYOUT = """
             <h2 style="margin-top: 15px;">Dúvidas Frequentes</h2>
             <p><strong>É gratuito?</strong> Sim, todas as nossas utilidades rodam diretamente no navegador do seu celular ou computador sem custo.</p>
             <p><strong>Precisa instalar aplicativo?</strong> Não, tudo funciona online de forma rápida e leve.</p>
+        </div>
+
+        <!-- Etapa 3: Teia de Links Internos (Cluster SEO) -->
+        <div class="cluster-links">
+            <h3>🔗 Outras Ferramentas Úteis para Você:</h3>
+            <ul>
+                <li><a href="fontes.html">Gerador de Letras & Fontes para Instagram</a></li>
+                <li><a href="whatsapp.html">Criador de Link Direto para WhatsApp</a></li>
+                <li><a href="contador.html">Contador de Letras e Palavras</a></li>
+                <li><a href="compressor.html">Compressor Inteligente de Fotos</a></li>
+                <li><a href="conversor-texto.html">Conversor de Letras Maiúsculas e Minúsculas</a></li>
+                <li><a href="gerador-senhas.html">Gerador de Senhas Fortes e Seguras</a></li>
+            </ul>
         </div>
 
         {{ ad_banner | safe }}
@@ -519,6 +586,25 @@ FERRAMENTAS = {
     }
 }
 
+def gerar_manifest():
+    manifest_content = """{
+  "name": "Nexto Utilidades Práticas",
+  "short_name": "Nexto",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}"""
+    with open("manifest.json", "w", encoding="utf-8") as f:
+        f.write(manifest_content)
+
 def gerar_sitemap():
     data_hoje = datetime.now().strftime("%Y-%m-%d")
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -547,8 +633,10 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Nexto Utilidades Práticas profissional sem erros...")
+    print("Gerando Nexto Utilidades Práticas com todas as otimizações avançadas...")
     from jinja2 import Template
+    
+    gerar_manifest()
     
     # Gerar Index
     with open("index.html", "w", encoding="utf-8") as f:
@@ -616,7 +704,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Nexto Utilidades Práticas gerado sem erros.")
+    print("Sucesso absoluto! Todas as 4 etapas de alavancagem SEO foram integradas com sucesso.")
 
 if __name__ == "__main__":
     gerar_site()
