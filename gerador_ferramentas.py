@@ -54,13 +54,11 @@ INDEX_TEMPLATE = """
     <title>Nexto Utilidades Práticas - Ferramentas Inteligentes para o Dia a Dia</title>
     <meta name="description" content="Otimize seu tempo com utilidades digitais de alta performance: gerador de fontes, links diretos do WhatsApp, contadores e compactadores inteligentes.">
     
-    <!-- Open Graph (OG) para Redes Sociais e WhatsApp -->
     <meta property="og:title" content="Nexto Utilidades Práticas - Ferramentas Gratuitas">
     <meta property="og:description" content="Utilidades digitais rápidas e seguras direto no seu navegador.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gerador-ferramentas-py.pages.dev/index.html">
 
-    <!-- Schema.org (JSON-LD) dados estruturados para o Google -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -206,12 +204,10 @@ TOOL_LAYOUT = """
     <title>{{ tool.title }} - Nexto Utilidades Práticas</title>
     <meta name="description" content="{{ tool.desc }}">
     
-    <!-- Open Graph (OG) -->
     <meta property="og:title" content="{{ tool.title }}">
     <meta property="og:description" content="{{ tool.desc }}">
     <meta property="og:type" content="article">
 
-    <!-- Schema.org Breadcrumb / Tool Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -260,7 +256,6 @@ TOOL_LAYOUT = """
         .seo-content h2 { font-size: 17px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
         .seo-content p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 12px; }
         
-        /* Cluster de links internos para SEO */
         .cluster-links { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 20px; border-radius: 20px; margin-bottom: 25px; }
         .cluster-links h3 { font-size: 15px; color: var(--primary); margin-top: 0; margin-bottom: 10px; }
         .cluster-links ul { margin: 0; padding-left: 20px; font-size: 14px; color: var(--text-light); }
@@ -293,7 +288,6 @@ TOOL_LAYOUT = """
             <p><strong>Precisa instalar aplicativo?</strong> Não, tudo funciona online de forma rápida e leve.</p>
         </div>
 
-        <!-- Etapa 3: Teia de Links Internos (Cluster SEO) -->
         <div class="cluster-links">
             <h3>🔗 Outras Ferramentas Úteis para Você:</h3>
             <ul>
@@ -428,6 +422,7 @@ FERRAMENTAS = {
                         </div>
                     `;
                 }
+                gerarLinkWp();
             </script>
         """
     },
@@ -438,6 +433,10 @@ FERRAMENTAS = {
         "html_content": """
             <textarea id="textoContador" placeholder="Cole ou digite seu texto aqui..." oninput="contar()" style="height:140px;"></textarea>
             
+            <div style="display:flex; gap:10px; margin-bottom:15px;">
+                <button class="copy-btn" style="flex:1; padding:10px;" onclick="limparContador()">Limpar Texto 🗑️</button>
+            </div>
+
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:15px;">
                 <div style="background:var(--bg-color); padding:16px; border-radius:14px; border:1.5px solid var(--border-color); text-align:center;">
                     <small style="color:var(--text-light); font-weight:700; font-size:12px; text-transform:uppercase;">Caracteres (com espaço)</small>
@@ -452,6 +451,7 @@ FERRAMENTAS = {
             <div style="margin-top:15px; background:var(--bg-color); padding:15px; border-radius:14px; border:1.5px solid var(--border-color);">
                 <div style="font-size:13px; font-weight:700; margin-bottom:8px; color:var(--text);">Status para Redes Sociais:</div>
                 <div id="statusBio" style="font-size:13px; color:var(--text-light); margin-bottom:4px;">• Bio do Instagram (Limite: 150 caracteres): <strong id="bioCount" style="color:var(--primary);">OK</strong></div>
+                <div id="statusTwitter" style="font-size:13px; color:var(--text-light); margin-bottom:4px;">• Twitter / X (Limite: 280 caracteres): <strong id="twitterCount" style="color:var(--primary);">OK</strong></div>
                 <div id="statusLeitura" style="font-size:13px; color:var(--text-light);">• Tempo estimado de leitura: <strong id="leituraTime" style="color:var(--primary);">0 segundos</strong></div>
             </div>
 
@@ -472,9 +472,22 @@ FERRAMENTAS = {
                         bioEl.innerText = `${chars}/150 (Passou do limite ❌)`;
                         bioEl.style.color = '#dc2626';
                     }
+
+                    let twEl = document.getElementById('twitterCount');
+                    if (chars <= 280) {
+                        twEl.innerText = `${chars}/280 (Permitido! ✔)`;
+                        twEl.style.color = '#16a34a';
+                    } else {
+                        twEl.innerText = `${chars}/280 (Excede o limite ❌)`;
+                        twEl.style.color = '#dc2626';
+                    }
                     
                     let segundos = Math.ceil(palavras / 3);
                     document.getElementById('leituraTime').innerText = segundos < 60 ? `${segundos} seg` : `${Math.ceil(segundos/60)} min`;
+                }
+                function limparContador() {
+                    document.getElementById('textoContador').value = '';
+                    contar();
                 }
             </script>
         """
@@ -495,7 +508,7 @@ FERRAMENTAS = {
                     if(!file) return;
                     
                     let tamanhoOriginalMB = (file.size / (1024*1024)).toFixed(2);
-                    document.getElementById('statusCompress').innerText = `Foto original: ${tamanhoOriginalMB} MB. Compactando...`;
+                    document.getElementById('statusCompress').innerText = `Foto original: ${tamanhoOriginalMB} MB. Compactando com alta eficiência...`;
                     
                     let reader = new FileReader();
                     reader.onload = function(event) {
@@ -511,10 +524,15 @@ FERRAMENTAS = {
                             canvas.height = img.height * scale;
                             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                             
-                            let dataUrl = canvas.toDataURL('image/jpeg', 0.7);
-                            document.getElementById('statusCompress').innerText = `Pronto! Sua foto foi otimizada com sucesso.`;
+                            let dataUrl = canvas.toDataURL('image/jpeg', 0.75);
+                            
+                            // Calcula tamanho aproximado em base64
+                            let base64Length = dataUrl.length - (dataUrl.indexOf(',') + 1);
+                            let compressedSizeMB = ((base64Length * 0.75) / (1024*1024)).toFixed(2);
+                            
+                            document.getElementById('statusCompress').innerText = `Pronto! Novo peso estimado: ~${compressedSizeMB} MB (Otimizada com sucesso ✔)`;
                             document.getElementById('resultadoCompress').innerHTML = `
-                                <a href="${dataUrl}" download="foto-otimizada.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Compactada</a>
+                                <a href="${dataUrl}" download="foto-otimizada-nexto.jpg" class="action-btn" style="text-decoration:none; display:block; text-align:center; padding:15px;">Baixar Foto Compactada Agora</a>
                             `;
                         }
                     }
@@ -633,16 +651,14 @@ def send_search_engine_pings():
             print(f"[Aviso] Ping offline: {e}")
 
 def gerar_site():
-    print("Gerando Nexto Utilidades Práticas com todas as otimizações avançadas...")
+    print("Gerando Nexto Utilidades Práticas com o ápice da performance e usabilidade...")
     from jinja2 import Template
     
     gerar_manifest()
     
-    # Gerar Index
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(Template(INDEX_TEMPLATE).render(ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, rodape_autentico=RODAPE_AUTENTICO))
     
-    # Gerar Páginas Estáticas (FAQ e Termos)
     static_layout = Template("""
     <!DOCTYPE html>
     <html lang="pt-BR">
@@ -696,7 +712,6 @@ def gerar_site():
         with open(filename, "w", encoding="utf-8") as f:
             f.write(static_layout.render(page=pdata, ad_banner=AD_BANNER, adsense_script=ADSENSE_SCRIPT, monetag_script=MONETAG_SCRIPT, google_meta=GOOGLE_META, rodape_autentico=RODAPE_AUTENTICO))
 
-    # Gerar Ferramentas
     t_layout = Template(TOOL_LAYOUT)
     for filename, data in FERRAMENTAS.items():
         with open(filename, "w", encoding="utf-8") as f:
@@ -704,7 +719,7 @@ def gerar_site():
             
     gerar_sitemap()
     send_search_engine_pings()
-    print("Sucesso absoluto! Todas as 4 etapas de alavancagem SEO foram integradas com sucesso.")
+    print("Sucesso absoluto! Todas as ferramentas foram aprimoradas com funções inteligentes.")
 
 if __name__ == "__main__":
     gerar_site()
